@@ -17,6 +17,7 @@ public:
 	// Sets default values for this actor's properties
 	AFPSObjectiveActor();
 
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
@@ -25,12 +26,13 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* SphereComponent;
 
+	UPROPERTY(EditDefaultsOnly, Category = "FX")
+	UParticleSystem* PickUpFX;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	void PlayEffects();
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 };
